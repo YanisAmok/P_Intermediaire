@@ -1,14 +1,12 @@
 import sys
-from PySide2.QtWidgets import (QApplication, QMainWindow, QFileDialog, QListWidgetItem,
-    QLabel, QLCDNumber, QApplication,
-    QVBoxLayout, QWidget, QComboBox, QHBoxLayout, QSizePolicy)
+from PySide2.QtWidgets import (QApplication, QWidget)
 from ui_IHM import Ui_Form
 import numpy as np
 import matplotlib.pyplot as plt
 import json
 
-#Projet_intermediaire.ui
-class MainWindow(QMainWindow):
+
+class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_Form()
