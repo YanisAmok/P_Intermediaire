@@ -1,0 +1,48 @@
+{
+  "academies":
+  [
+    {
+      "nom":"Toulouse",
+      "etablissements":
+      [
+        {
+          "nom":"Arenes",
+          "adresse":"Billieres",
+          "classes":
+          [
+            {
+              "nom":"Terminale",
+              "anneeSco":"2019",
+              "PP":"JPP",
+              "eleves":
+              [
+                {
+                  "nom":"Montagne",
+                  "prenom":"JB",
+                  "adresse":"St Cyp",
+                  "appreciationPP":"Bon Travail",
+                  "matieres":
+                  [
+                    {
+                      "nom":"Mathematiques",
+                      "coef":9.0,
+                      "appreciation":"Excellent",
+                      "notes":
+                      [
+                        {
+                          "nom":"Devoir",
+                          "coef": 1.0,
+                          "valeur":20
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
