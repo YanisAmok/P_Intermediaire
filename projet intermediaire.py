@@ -5,52 +5,49 @@ import numpy as np
 import matplotlib.pyplot as plt
 import json
 
-
+with open('Projet intermediaire.json') as json_data:
+    dico = json.load(json_data)
 class MainWindow(QWidget):
     def __init__(self):
         super(MainWindow, self).__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+        self.ui.cbAcademie.addItems(("yanis", "michel"))
+        self.ui.cbAcademie.currentIndexChanged.connect(self.afficherdico)
 
+    def afficherdico(self):
+        print(dico)
 
-    #self.dico={}
+#         self.ui.cbAcademie.currentIndexChanged.connect(self.updateEtablissements)
+#         self.ui.cbEtablissement.currentIndexChanged.connect(self.updateClasses)
+#         self.ui.cbClasse.currentIndexChanged.connect(self.updateMatieres)
 
-
-
-# with open('Projet intermediaire.json') as json_data:
-#     dico = json.load(json_data)
-#     print(dico)
-#
-#     self.ui.cbAcademie.currentIndexChanged.connect(self.updateEtablissements)
-#     self.ui.cbEtablissement.currentIndexChanged.connect(self.updateClasses)
-#     self.ui.cbClasse.currentIndexChanged.connect(self.updateMatieres)
-#
-#     def updateAcademie(self):
-#         self.ui.cbAcademie.clear()
-#         maliste = []
-#         for a in self.dico["academies"]:
-#             maliste.append("Paris")
-#             #self.ui.cbAcademie.addItems(a["nom"])
-#             self.ui.cbAcademie.addItems(maliste)
-#     def updateEtablissements (self):
-#         self.ui.cbEtablissement.clear()
-#         for e in self.dico["academies"][self.ui.cbAcademie.currentIndex()] ["etablissements"]:
-#             self.ui.cbEtablissement.addItems(e["nom"])
-#
-#     def updateClasses (self):
-#         self.ui.cbClasse.clear()
-#         for c in self.dico["academies"][self.ui.cbAcademie.currentIndex()] ["etablissements"][self.ui.cbEtablissement.currentIndex()] ["classes"]:
-#             self.ui.cbClasse.addItems(c["nom"])
-#
-#     def updateMatieres (self):
-#         dicoClasse = self.dico["academies"][self.ui.cbAcademie.currentIndex()]["etablissements"][self.ui.cbEtablissement.currentIndex()]["classes"][self.ui.cbClasse.currentIndex()] ["matieres"]:
-#         listeMatieres = []
-#         for eleve in dicoClasse["eleves"]:
-#             for matiere in eleve["matieres"]:
-#                 listeMatieres.append(matiere["nom"])
-#         listeMatieresUniques = np.unique(listeMatieres)
-#         self.ui.cbMatiere.addItems(listeMatieresUniques)#addItems crée une liste
-#                                                         #addItem rajoute les elements un par un
+    # def updateAcademie(self):
+    #     self.ui.cbAcademie.clear()
+    #     maliste = []
+    #     for a in self.dico["academies"]:
+    #         maliste.append("Paris")
+    #         self.ui.cbAcademie.addItems(a["nom"])
+    #         self.ui.cbAcademie.addItems(maliste)
+    # def updateEtablissements (self):
+    #     self.ui.cbEtablissement.clear()
+    #     for e in self.dico["academies"][self.ui.cbAcademie.currentIndex()] ["etablissements"]:
+    #         self.ui.cbEtablissement.addItems(e["nom"])
+    #
+    # def updateClasses (self):
+    #     self.ui.cbClasse.clear()
+    #     for c in self.dico["academies"][self.ui.cbAcademie.currentIndex()] ["etablissements"][self.ui.cbEtablissement.currentIndex()] ["classes"]:
+    #         self.ui.cbClasse.addItems(c["nom"])
+    #
+    # def updateMatieres (self):
+    #     dicoClasse = self.dico["academies"][self.ui.cbAcademie.currentIndex()]["etablissements"][self.ui.cbEtablissement.currentIndex()]["classes"][self.ui.cbClasse.currentIndex()] ["matieres"]:
+    #     listeMatieres = []
+    #     for eleve in dicoClasse["eleves"]:
+    #         for matiere in eleve["matieres"]:
+    #             listeMatieres.append(matiere["nom"])
+    #     listeMatieresUniques = np.unique(listeMatieres)
+    #     self.ui.cbMatiere.addItems(listeMatieresUniques)#addItems crée une liste
+    #                                                     #addItem rajoute les elements un par un
 #
 #     def updateSaisieEleve(self):
 #         listeEleves = []
