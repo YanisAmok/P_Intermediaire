@@ -12,11 +12,17 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
-        self.ui.cbAcademie.addItems(("yanis", "michel"))
-        self.ui.cbAcademie.currentIndexChanged.connect(self.afficherdico)
+        for a in dico["academies"]:
+            self.ui.cbAcademie.addItem(a["nom"])
+            for e in a["etablissements"]:
+                self.ui.cbEtablissement.addItem(e["nom"])
+                for c in e["classes"]:
+                    self.ui.cbClasse.addItem(c["nom"])
+        # self.ui.cbAcademie.currentIndexChanged.connect(self.afficherdico)
 
-    def afficherdico(self):
-        print(dico)
+    # def afficherdico(self):
+    #     for a in dico["academies"]:
+    #         print(a["nom"])
 
 #         self.ui.cbAcademie.currentIndexChanged.connect(self.updateEtablissements)
 #         self.ui.cbEtablissement.currentIndexChanged.connect(self.updateClasses)
