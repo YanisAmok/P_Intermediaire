@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import (QApplication, QWidget)
+from PySide2.QtWidgets import (QApplication, QWidget, QTableWidgetItem)
 from ui_IHM import Ui_Form
 import numpy as np
 import matplotlib.pyplot as plt
@@ -12,12 +12,23 @@ class MainWindow(QWidget):
         super(MainWindow, self).__init__()
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+
+        listEl = []
         for a in dico["academies"]:
             self.ui.cbAcademie.addItem(a["nom"])
             for e in a["etablissements"]:
                 self.ui.cbEtablissement.addItem(e["nom"])
                 for c in e["classes"]:
                     self.ui.cbClasse.addItem(c["nom"])
+                    for el in c["eleves"]:
+                        listEl.append([str(el["nom"]),str(el["prenom"])])
+        self.ui.twNotes.setRowCount(len(listEl))
+        self.ui.twNotes.clear()
+        self.ui.twNotes.setColumnCount(2)
+        for cpt in range(len(listEl)):
+            self.ui.twNotes.setItem(cpt, 0, QTableWidgetItem(str(listEl[cpt][0])))
+            self.ui.twNotes.setItem(cpt, 1, QTableWidgetItem(str(listEl[cpt][1])))
+
         # self.ui.cbAcademie.currentIndexChanged.connect(self.afficherdico)
 
     # def afficherdico(self):
